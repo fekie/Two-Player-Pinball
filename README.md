@@ -1,3 +1,3 @@
 # arcade-brigade
 
-Documentation for score-counter: [score-counter](score-counter/score-counter.md)
+Documentation for the score counter: [score_counter](score_counter/score_counter.md)
