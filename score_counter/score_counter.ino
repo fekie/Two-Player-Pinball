@@ -1,19 +1,42 @@
 #include <LiquidCrystal_I2C.h>
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // I2C address 0x27, 16 column and 2 rows
+bool needsDisplayUpdate = true;
+int p1Score = 0;
+int p2Score = 0;
 
 void setup()
 {
   lcd.init(); // initialize the lcd
   lcd.backlight();
+
+  // Set pins 2 and 3 to input and enable the pull-up resistors
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
+
+  // board debug led
+  pinMode(13, OUTPUT);
+
+  
 }
 
 void loop()
 {
-  lcd.clear();                 // clear display
-  lcd.setCursor(0, 0);         // move cursor to   (0, 0)
-  lcd.print("Meow :3c");        // print message at (0, 0)
-  lcd.setCursor(2, 1);         // move cursor to   (2, 1)
-  lcd.print("P2 Score: 4"); // print message at (2, 1)
-  delay(2000);                 // display the above for two seconds           // display the above for two seconds
+  if (needsDisplayUpdate) {
+    updateDisplay();
+    needsDisplayUpdate = false;
+  }
+
+  
+}
+
+void updateDisplay()
+{
+  lcd.clear();
+  lcd.setCursor(0, 0);         
+  lcd.print("P1 Score: ");        
+  lcd.print(p1Score);
+  lcd.setCursor(0, 1);        
+  lcd.print("P2 Score: ");
+  lcd.print(p2Score); 
 }
