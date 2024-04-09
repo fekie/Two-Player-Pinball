@@ -35,7 +35,7 @@ SCL -> A5
 ```
 2. Connect one side of the player 1 button to ground, and connect the other side to Pin 2 on the Arduino.
 3. Repeat step 2 with the player 2 button, except connect the second cable to Pin 3 on the arduino.
-4. Flash the code provided in [score_counter.ino](score_counter.ino) onto the Arduino.
+4. Flash the code provided in [score_counter.ino](score_counter/score_counter.ino) onto the Arduino.
 5. Provide a power source, such as a power bank.
 
 ![Image of set-up score counter](IMG_9408.jpg)
